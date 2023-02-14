@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ArticlesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
+*/
+Route::resource('article',ArticlesController::class);
+Route::get('/',[ArticlesController::class,'index'])->name('root');
 
 Route::middleware([
     'auth:sanctum',
