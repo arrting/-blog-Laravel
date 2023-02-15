@@ -17,7 +17,7 @@ use App\Http\Controllers\ArticlesController;
     return view('welcome');
 });
 */
-Route::resource('article',ArticlesController::class);
+Route::resource('articles',ArticlesController::class);
 Route::get('/',[ArticlesController::class,'index'])->name('root');
 
 Route::middleware([
