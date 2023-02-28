@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticlesController;
 /*
@@ -19,7 +20,14 @@ use App\Http\Controllers\ArticlesController;
 */
 Route::resource('articles',ArticlesController::class);
 Route::get('/',[ArticlesController::class,'index'])->name('root');
-
+Route::get(
+    '/home',
+    [HomeController::class, 'show']
+)->name('home');
+Route::get(
+    '/menu',
+    [HomeController::class, 'menu']
+)->name('menu');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
